@@ -1,12 +1,16 @@
 #!/bin/sh
 
+print_usage() {
+    echo "Usage: $0 [-v] <program> <test-1.in> ... <test-N.in>"
+}
+
 VERBOSE=false
 if [ $# -ge 2 ]
 then
     if [ "$1" == "-v" ]; then
         VERBOSE=true
         if [ $# -lt 3 ]; then
-            echo "Usage: $0 [-v] <program> <test1.in> ... <testN.in>"
+            print_usage
             exit 1;
         fi
         PROGRAM=$2
@@ -15,6 +19,9 @@ then
         PROGRAM=$1
         TEST_FILES=${@:2}  
     fi
+else
+    print_usage
+    exit 1;
 fi;
 
 DIFF=diff
