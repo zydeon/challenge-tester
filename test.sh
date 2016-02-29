@@ -5,10 +5,12 @@ print_usage() {
 }
 
 VERBOSE=false
+VERBOSE_STR=''
 if [ $# -ge 2 ]
 then
     if [ "$1" == "-v" ]; then
         VERBOSE=true
+        VERBOSE_STR='verbose'
         if [ $# -lt 3 ]; then
             print_usage
             exit 1;
@@ -29,7 +31,7 @@ if hash colordiff 2>/dev/null; then
     DIFF=colordiff
 fi
 
-echo "Testing \"$PROGRAM\" ..."
+echo "Testing $VERBOSE_STR \"$PROGRAM\" ..."
 for t in $TEST_FILES; do
     # run program
     myt="${t%.*}.test.out"
