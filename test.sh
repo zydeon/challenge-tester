@@ -31,6 +31,7 @@ for t in $TEST_FILES; do
     # compare outputs
     if $DIFF -b "${t%.*}.out" $myt > /dev/null; then
         printf "   ✔   $t\n"
+        rm $myt
     else
         printf "   ❌   $t\n"
         if $VERBOSE; then
