@@ -17,4 +17,21 @@ In addition, the user must indicate the input tests and create the optimal outpu
 **-v** &nbsp;&nbsp; Verbose mode. If the program is wrong, it shows the output of `diff` between the optimal solution and the one produced by the program (for each test case that was included in the tester).
 
 ### Examples
-Examples of usage can be found under the folder `examples`.
+Examples of usage can be found under the folder `examples` or below:
+
+<pre>
+$ touch test-1.in && vim test-1.in
+$ touch test-1.out && vim test-1.out
+$ touch test-2.in && vim test-2.in
+$ touch test-2.out && vim test-2.out
+<b>$ ./test.sh "python algorithm.py" test-1.in test-2.in</b>
+</pre>
+
+<pre>
+$ mkdir tests
+$ for i in {1..X}; do
+>   touch tests/test-$i.in && vim tests/test-$i.in
+>   touch tests/test-$i.out && vim tests/test-$i.out
+> done
+<b>$ ./test.sh "./algorithm" tests/*.in</b>
+</pre>
